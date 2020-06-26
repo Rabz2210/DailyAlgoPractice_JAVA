@@ -31,21 +31,20 @@ public class BinaryTreeImpl {
         PostOrderTraversal(root.right);
         System.out.print(""+root.data);
     }
+    public static int height(Node root){
+        if(root ==null)return 0;
+        else{
+            return Math.max(height(root.left), height(root.right))+1;
+        }
+    }
     public static void main(String[] args) {
         Node root = new Node(10);
         root.left = new Node(20);
         root.left.left = new Node(40);
         root.left.right = new Node(50);
         root.right = new Node(30);
-        System.out.println("Pre-Order Traversal: ");
-        System.out.println();
-        BinaryTreeImpl.PreOrderTraversal(root);
-        System.out.println("In-Order Traversal: ");
-        System.out.println();
-        BinaryTreeImpl.InOrderTraversal(root);
-        System.out.println("Post-Order Traversal: ");
-        System.out.println();
-        BinaryTreeImpl.PostOrderTraversal(root);
+        System.out.println("Height of the binary tree: "+height(root));
+
 
     }
 }
