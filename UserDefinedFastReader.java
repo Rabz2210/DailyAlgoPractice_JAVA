@@ -76,5 +76,18 @@ public class UserDefinedFastReader {
 	    {
 	        bw.close();
 	    }
-	}
+    }
+    public static void main(String[] args) {
+        { 
+            FastReader s=new FastReader();
+            Print p = new Print();
+            
+            int n = s.nextInt();
+            String name = s.next();
+            p.print("Integer "+n);
+            p.println("name "+name);
+            p.close();
+            
+        }
+    }
 }
