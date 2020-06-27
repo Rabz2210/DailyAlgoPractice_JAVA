@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
 public class UserDefinedFastReader {
     static class FastReader 
 	{ 
@@ -77,7 +84,7 @@ public class UserDefinedFastReader {
 	        bw.close();
 	    }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         { 
             FastReader s=new FastReader();
             Print p = new Print();
