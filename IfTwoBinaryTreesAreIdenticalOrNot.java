@@ -1,18 +1,19 @@
+class Node{
+    int data;
+    Node left;
+    Node right;
+
+    Node(int data){
+        this.data = data;
+    }
+}
 public class IfTwoBinaryTreesAreIdenticalOrNot {
     public static boolean isIdentical(Node x, Node y){
-// if both trees are empty, return true
-if (x == null && y == null) {
-    return true;
-}
-
-// if both trees are non-empty and value of their root node matches,
-// recur for their left and right sub-tree
-return (x != null && y != null) && (x.data == y.data) &&
-               isIdentical(x.left, y.left) &&
-               isIdentical(x.right, y.right);
-    }
-    public static void main(String[] args) {
-        Node x = new Node(15);
+		if(x==null && y==null)return true;
+		return((x!=null&&y!=null)&&(x.data==y.data)&&(isIdentical(x.left, y.left)&&isIdentical(x.right, y.right)));
+	}
+	public static void main(String[] args) {
+		Node x = new Node(15);
 		x.left = new Node(10);
 		x.right = new Node(20);
 		x.left.left = new Node(8);
@@ -34,5 +35,6 @@ return (x != null && y != null) && (x.data == y.data) &&
 		} else {
 			System.out.print("Given binary Trees are not identical");
 		}
-    }
+		
+	}
 }
