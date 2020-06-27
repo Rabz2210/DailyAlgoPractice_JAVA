@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
 class Node{
     int data;
@@ -37,6 +39,20 @@ public class BinaryTreeImpl {
             return Math.max(height(root.left), height(root.right))+1;
         }
     }
+    public static void BFS(Node root){
+        Queue<Node> q= new LinkedList<Node>();
+        q.add(root);
+        while(!q.isEmpty()){
+            
+            Node Parent =  q.poll();
+            System.out.print(""+Parent.data+" ");
+            
+            if(Parent.left!=null)q.add(Parent.left);
+            if(Parent.right!=null)q.add(Parent.right);
+        }
+
+        
+    }
     public static void main(String[] args) {
         Node root = new Node(10);
         root.left = new Node(20);
@@ -44,6 +60,8 @@ public class BinaryTreeImpl {
         root.left.right = new Node(50);
         root.right = new Node(30);
         System.out.println("Height of the binary tree: "+height(root));
+        System.out.println("BFS: ");
+        BFS(root);
 
 
     }
