@@ -10,15 +10,15 @@ class Node1 {
     }
 }
 public class BinaryTreeFromInorderTraversal {
+    static int preIndex = 0;
     public static Node1 buildTree(int[] pre,int[] InOrder,int inStart,int inEnd){
         if(inStart>inEnd)return null;
-        Node1 n = new Node1(pre[inStart]);
-        inStart++;
+        Node1 n = new Node1(pre[preIndex]);
+        preIndex++;
         if(inStart==inEnd)return n;
         int inIndex=0;
         for(int i=0;i<InOrder.length;i++){
-            if(pre[inStart]==InOrder[i])
-              inIndex = i;
+            if(pre[inStart]==InOrder[i]){inIndex = i;}
         }
         Node1 left = buildTree(pre,InOrder,inStart,inIndex-1);
         Node1 Right = buildTree(pre,InOrder,inIndex+1,inEnd);
