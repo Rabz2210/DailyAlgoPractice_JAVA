@@ -13,15 +13,15 @@ public class BinaryTreeFromInorderTraversal {
     static int preIndex = 0;
     public static Node1 buildTree(int[] pre,int[] InOrder,int inStart,int inEnd){
         if(inStart>inEnd)return null;
-        Node1 n = new Node1(pre[preIndex]);
-        preIndex++;
+        Node1 n = new Node1(pre[preIndex++]);
         if(inStart==inEnd)return n;
         int inIndex=0;
         for(int i=0;i<InOrder.length;i++){
-            if(pre[inStart]==n.data){inIndex = i;}
+            if(InOrder[i]==n.data)
+            {inIndex = i;}
         }
-        Node1 left = buildTree(pre,InOrder,inStart,inIndex-1);
-        Node1 Right = buildTree(pre,InOrder,inIndex+1,inEnd);
+        n.left = buildTree(pre,InOrder,inStart,inIndex-1);
+        n.right = buildTree(pre,InOrder,inIndex+1,inEnd);
         return n;
     }
     public static void inOrderTraversal(Node1 root){
