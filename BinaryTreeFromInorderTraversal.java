@@ -1,18 +1,18 @@
 import java.util.Arrays;
 
-class Node {
+class Node1 {
     int data;
-    Node left;
-    Node right;
+    Node1 left;
+    Node1 right;
 
-    Node(int data){
+    Node1(int data){
         this.data = data;
     }
 }
 public class BinaryTreeFromInorderTraversal {
-    public static Node buildTree(int[] pre,int[] InOrder,int inStart,int inEnd){
+    public static Node1 buildTree(int[] pre,int[] InOrder,int inStart,int inEnd){
         if(inStart>inEnd)return null;
-        Node n = new Node(pre[inStart]);
+        Node1 n = new Node1(pre[inStart]);
         inStart++;
         if(inStart==inEnd)return n;
         int inIndex=0;
@@ -20,11 +20,25 @@ public class BinaryTreeFromInorderTraversal {
             if(pre[inStart]==InOrder[i])
               inIndex = i;
         }
-        Node left = buildTree(pre,InOrder,inStart,inIndex-1);
-        Node Right = buildTree(pre,InOrder,inIndex+1,inEnd);
+        Node1 left = buildTree(pre,InOrder,inStart,inIndex-1);
+        Node1 Right = buildTree(pre,InOrder,inIndex+1,inEnd);
         return n;
     }
+    public static void inOrderTraversal(Node1 root){
+        if(root==null)return;
+        else{
+            inOrderTraversal(root.left);
+            System.out.println(""+root.data);
+            inOrderTraversal(root.right);
+        }
+    }
     public static void main(String[] args) {
-        
+        int[] inOrder = new int[]{40,20,50,10,30};
+        int[] preOrder = new int[]{10,20,40,50,30};
+        System.out.println("Building Tree");
+        Node1 root = buildTree(preOrder, inOrder, 0, inOrder.length-1);
+
+        System.out.println("Displaying tree");
+        inOrderTraversal(root);
     }
 }
