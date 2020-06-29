@@ -18,7 +18,7 @@ public class BinaryTreeFromInorderTraversal {
         if(inStart==inEnd)return n;
         int inIndex=0;
         for(int i=0;i<InOrder.length;i++){
-            if(pre[inStart]==InOrder[i]){inIndex = i;}
+            if(pre[inStart]==n.data){inIndex = i;}
         }
         Node1 left = buildTree(pre,InOrder,inStart,inIndex-1);
         Node1 Right = buildTree(pre,InOrder,inIndex+1,inEnd);
